@@ -130,22 +130,21 @@ def bin2hex(s):
 
     for i in range(0, len(s), 4):
         ch = ""
-        ch = ch + s[i]
-        ch = ch + s[i + 1]
-        ch = ch + s[i + 2]
-        ch = ch + s[i + 3]
-        hex = hex + mp[ch]
+        ch += s[i]
+        ch += s[i + 1]
+        ch += s[i + 2]
+        ch += s[i + 3]
+        hex += mp[ch]
         
     return hex
 
 # Binary to decimal converter
 def bin2dec(binary):
-    tmp_binary = binary
-    decimal, i, n = 0, 0, 0
+    decimal, i = 0, 0
 
     while (binary != 0):
         dec = binary % 10  
-        decimal = decimal + dec * pow(2, i)
+        decimal += dec * pow(2, i)
         binary //= 10
         i += 1
 
@@ -160,7 +159,7 @@ def dec2bin(num):
         div = int(div)
         counter = (4 * (div + 1)) - len(res)
 
-        for i in range(0, counter):
+        for i in range(counter):
             res = '0' + res
 
     return res
@@ -169,8 +168,8 @@ def dec2bin(num):
 def permute(k, arr, n):
     permutation = ""
 
-    for i in range(0, n):
-        permutation = permutation + k[arr[i] - 1]
+    for i in range(n):
+        permutation +=  k[arr[i] - 1]
 
     return permutation
 
@@ -180,8 +179,8 @@ def shift_left(k, nth_shifts):
 
     for i in range(nth_shifts):
         for j in range(1, len(k)):
-            s = s + k[j]
-        s = s + k[0]
+            s += k[j]
+        s += k[0]
         k = s
         s = ""
 
@@ -193,9 +192,9 @@ def xor(a, b):
 
     for i in range(len(a)):
         if a[i] == b[i]:
-            ans = ans + "0"
+            ans += "0"
         else:
-            ans = ans + "1"
+            ans += "1"
 
     return ans
 
