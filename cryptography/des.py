@@ -294,7 +294,7 @@ if __name__ == "__main__":
             46, 42, 50, 36, 29, 32]
 
     # Splitting
-    left = key[0:28]
+    left = key[:28]
     right = key[28:56]
 
     rkb = []
